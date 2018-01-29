@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
+import RegistrationForm from "./RegistrationForm";
 
-class Registration extends Component {
-    render() { 
-        return (
-            <div class="container">
-                <div class="row">
-                <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
-              </div>
-            </div>
-            
-        )
+export default class Registration extends Component {
+
+    handleRootSubmit(fields){
+        console.log("Value : ", fields);
     }
-}
- 
-export default Registration;
+
+    render() {
+        return (
+            <div>
+                <RegistrationForm 
+                onSubmit={fields => this.handleRootSubmit(fields)} />
+            </div>
+        );
+    }
+};
