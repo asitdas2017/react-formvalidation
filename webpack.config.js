@@ -12,7 +12,7 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-                presets: ['env', 'react']
+                presets: ['es2015', 'stage-2', 'react']
             }
         }]
     }

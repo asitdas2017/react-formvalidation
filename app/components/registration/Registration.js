@@ -3,15 +3,29 @@ import RegistrationForm from "./RegistrationForm";
 
 export default class Registration extends Component {
 
-    handleRootSubmit(fields){
-        console.log("Value : ", fields);
+    constructor(props){
+        super(props);
+        this.state = {
+            fields: {}
+        }
+    }
+
+    handleRootSubmit(updatedValue){
+        //console.log("Value : ", fields);
+        this.setState({
+            fields: {
+                ...this.state.fields,
+                ...updatedValue
+            }
+        });
     }
 
     render() {
         return (
             <div>
-                <RegistrationForm 
-                onSubmit={fields => this.handleRootSubmit(fields)} />
+                <RegistrationForm onChange={fields => this.handleRootSubmit(fields)} />
+                <br />
+                <p>{JSON.stringify(this.state.fields, null, 2)}</p>
             </div>
         );
     }
